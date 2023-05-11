@@ -20,9 +20,10 @@ export class MoviesController {
     return 'This will return all movies';
   }
 
+  // 반드시 @Get(':id') <- 얘보다 위에 위치해야 된다. 안그러면 엔트리포인트 이후를 그냥 id로 인식함
   @Get('search')
   search(@Query('year') searchingYear) {
-    return `This will return all movies made after: ${searchingYear}`;\
+    return `This will return all movies made after: ${searchingYear}`;
     // http://localhost:7653/movies/search?year=2000
     // 여기에서 year를 리턴함
   }
