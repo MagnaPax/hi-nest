@@ -10,6 +10,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 @Controller('movies') // url의 엔트리 포인트
@@ -17,6 +18,13 @@ export class MoviesController {
   @Get()
   getAll(): string {
     return 'This will return all movies';
+  }
+
+  @Get('search')
+  search(@Query('year') searchingYear) {
+    return `This will return all movies made after: ${searchingYear}`;\
+    // http://localhost:7653/movies/search?year=2000
+    // 여기에서 year를 리턴함
   }
 
   @Get(':id')
