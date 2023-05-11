@@ -19,7 +19,7 @@ export class MoviesController {
     return 'This will return all movies';
   }
 
-  @Get('/:id')
+  @Get(':id')
   getOne(@Param('id') movieId: string): string {
     // @Param('id') <- id 파라미터를 원한다고 요청
     // return 'This will return one movie';
@@ -33,15 +33,15 @@ export class MoviesController {
     return movieData;
   }
 
-  @Post('/:id/actors')
+  @Post(':id/actors')
   addActor() {}
 
-  @Delete('/:id')
+  @Delete(':id')
   remove(@Param('id') movieId: string) {
     return `This will delete a movie with the id: ${movieId}`;
   }
 
-  @Patch('/:id')
+  @Patch(':id')
   patch(@Param('id') movieId: string, @Body() updateData) {
     // return `This will update a movie with the id: ${movieId}`;
     return {
