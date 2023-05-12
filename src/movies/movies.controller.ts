@@ -18,6 +18,7 @@ import {
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Controller('movies') // url의 엔트리 포인트
 export class MoviesController {
@@ -66,7 +67,7 @@ export class MoviesController {
   }
 
   @Patch(':id')
-  patch(@Param('id') movieId: number, @Body() updateData) {
+  patch(@Param('id') movieId: number, @Body() updateData: UpdateMovieDto) {
     // main의 transform 덕분에 url의 형식인 string 대신에 원래 entity의 id 형식인 number를 쓸 수 있다
 
     // patch(@Param('id') movieId: string, @Body() updateData) {

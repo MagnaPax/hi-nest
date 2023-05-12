@@ -6,6 +6,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Injectable()
 export class MoviesService {
@@ -46,7 +47,7 @@ export class MoviesService {
     });
   }
 
-  update(id: number, updateData) {
+  update(id: number, updateData: UpdateMovieDto) {
     // main의 transform 덕분에 url의 형식인 string 대신에 원래 entity의 id 형식인 number를 쓸 수 있다
 
     // update(id: string, updateData) {
