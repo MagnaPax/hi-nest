@@ -17,6 +17,7 @@ import {
 } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
+import { CreateMovieDto } from './dto/create-movie.dto';
 
 @Controller('movies') // url의 엔트리 포인트
 export class MoviesController {
@@ -45,7 +46,7 @@ export class MoviesController {
   }
 
   @Post()
-  create(@Body() movieData) {
+  create(@Body() movieData: CreateMovieDto) {
     console.log(movieData);
     // return 'This will create a movie';
     // return movieData;
