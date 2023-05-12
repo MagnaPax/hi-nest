@@ -38,10 +38,13 @@ export class MoviesController {
   }
 
   @Get(':id')
-  getOne(@Param('id') movieId: string): Movie {
+  getOne(@Param('id') movieId: number): Movie {
+    // entity에서 id가 number이다.
     // @Param('id') <- id 파라미터를 원한다고 요청
     // return 'This will return one movie';
     // return `This will return one movie with the id: ${movieId}`;
+    console.log('movieId형식: ', typeof movieId);
+
     return this.moviesService.getOne(movieId);
   }
 
@@ -54,13 +57,19 @@ export class MoviesController {
   }
 
   @Delete(':id')
-  remove(@Param('id') movieId: string) {
+  remove(@Param('id') movieId: number) {
+    // main의 transform 덕분에 url의 형식인 string 대신에 원래 entity의 id 형식인 number를 쓸 수 있다
+
+    // remove(@Param('id') movieId: string) {
     // return `This will delete a movie with the id: ${movieId}`;
     return this.moviesService.deleteOne(movieId);
   }
 
   @Patch(':id')
-  patch(@Param('id') movieId: string, @Body() updateData) {
+  patch(@Param('id') movieId: number, @Body() updateData) {
+    // main의 transform 덕분에 url의 형식인 string 대신에 원래 entity의 id 형식인 number를 쓸 수 있다
+
+    // patch(@Param('id') movieId: string, @Body() updateData) {
     // return `This will update a movie with the id: ${movieId}`;
     // return {
     //   updatedMovie: movieId,
